@@ -6,12 +6,12 @@
 //
 
 import UIKit
-
+var val : String = ""
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
     var collectionView : UICollectionView?
     var jokesManager = JokesManager()
-    let Category : [String] = ["animal","career","celebrity","dev","explicit","fashion","food","history","money","movie","music","political","religion","science","sport","travel"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()
@@ -28,16 +28,31 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         view.addSubview(contentLabel)
         view.addSubview(JokeTextView)
         view.addSubview(JokeButton)
+        JokeButton.addTarget(self, action: #selector(editButtonTapped), for: UIControl.Event.touchUpInside)
+        jokesManager.delegate = self
     }
-   
+    @objc func editButtonTapped() {
+        DispatchQueue.main.async {
+            self.jokesManager.fetchAPI(category: self.jokesManager.getCategoryName(CategoryName: val ))
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        Category.count
+        jokesManager.Category.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
-        cell.labeld.text = Category[indexPath.row]
+        cell.labeld.text = jokesManager.Category[indexPath.row]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let Category = jokesManager.Category[indexPath.row]
+        val = jokesManager.Category[indexPath.row]
+        let CategoryString = jokesManager.getCategoryName(CategoryName: Category)
+        jokesManager.fetchAPI(category: CategoryString)
+        contentLabel.text = "Selected Category : \(Category)"
+    
     }
     let titlelabel : UILabel = {
         let label = UILabel(frame: CGRect(x: 12, y: 110, width: 400, height: 30))
@@ -57,8 +72,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }()
     let JokeTextView: UITextView = {
         let JokeView = UITextView(frame: CGRect(x: 10, y: 430, width: 370, height: 250))
-        JokeView.text = "Chuck Norris once rode a bull, and nine months later it had a calf."
-        JokeView.textContainerInset = UIEdgeInsets(top: 100, left: 30, bottom:  50, right: 30)
+        JokeView.text = "Select a Category to Disaply Jokes"
+        JokeView.textContainerInset = UIEdgeInsets(top: 70, left: 30, bottom:  70, right: 30)
         JokeView.textColor = .white
         JokeView.backgroundColor = .link
         JokeView.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
@@ -75,3 +90,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }()
 }
 
+extension ViewController : JokesManagerDelegate{
+    func didUpdateJokes(JokesPassed: JokeModel) {
+        DispatchQueue.main.async {
+            self.JokeTextView.text = JokesPassed.Name
+        }
+    }
+}
