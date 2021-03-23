@@ -88,7 +88,7 @@ struct JokesManager {
         case "Travel":
             return "travel"
         default:
-            return "animal"
+            return "nil"
         }
     }
 }

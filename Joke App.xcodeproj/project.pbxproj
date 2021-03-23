@@ -7,23 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		016C02E82609A3AA00C8270D /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016C02E72609A3AA00C8270D /* MyCollectionViewCell.swift */; };
 		016C02ED2609AB5900C8270D /* JokeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016C02EC2609AB5900C8270D /* JokeData.swift */; };
 		016C02F02609BE6300C8270D /* JokeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016C02EF2609BE6300C8270D /* JokeModel.swift */; };
+		016C02F5260A144C00C8270D /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016C02F4260A144B00C8270D /* CustomCollectionViewCell.swift */; };
 		01C9CB4E2608C46B002A5319 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C9CB4D2608C46B002A5319 /* AppDelegate.swift */; };
 		01C9CB502608C46B002A5319 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C9CB4F2608C46B002A5319 /* SceneDelegate.swift */; };
 		01C9CB522608C46B002A5319 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C9CB512608C46B002A5319 /* ViewController.swift */; };
 		01C9CB552608C46B002A5319 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C9CB532608C46B002A5319 /* Main.storyboard */; };
 		01C9CB572608C473002A5319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01C9CB562608C473002A5319 /* Assets.xcassets */; };
 		01C9CB5A2608C473002A5319 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C9CB582608C473002A5319 /* LaunchScreen.storyboard */; };
-		01C9CBAF2608FF6D002A5319 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01C9CBAD2608FF6D002A5319 /* MyCollectionViewCell.xib */; };
 		01C9CBB52609206C002A5319 /* JokesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C9CBB42609206C002A5319 /* JokesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		016C02E72609A3AA00C8270D /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		016C02EC2609AB5900C8270D /* JokeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeData.swift; sourceTree = "<group>"; };
 		016C02EF2609BE6300C8270D /* JokeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeModel.swift; sourceTree = "<group>"; };
+		016C02F4260A144B00C8270D /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		01C9CB4A2608C46B002A5319 /* Joke App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Joke App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01C9CB4D2608C46B002A5319 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01C9CB4F2608C46B002A5319 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +31,6 @@
 		01C9CB562608C473002A5319 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01C9CB592608C473002A5319 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01C9CB5B2608C473002A5319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01C9CBAD2608FF6D002A5319 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		01C9CBB42609206C002A5319 /* JokesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				01C9CB512608C46B002A5319 /* ViewController.swift */,
-				016C02E72609A3AA00C8270D /* MyCollectionViewCell.swift */,
+				016C02F4260A144B00C8270D /* CustomCollectionViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -90,7 +88,6 @@
 		01C9CBB22609201F002A5319 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				01C9CBAD2608FF6D002A5319 /* MyCollectionViewCell.xib */,
 				01C9CB532608C46B002A5319 /* Main.storyboard */,
 			);
 			path = View;
@@ -165,7 +162,6 @@
 			files = (
 				01C9CB5A2608C473002A5319 /* LaunchScreen.storyboard in Resources */,
 				01C9CB572608C473002A5319 /* Assets.xcassets in Resources */,
-				01C9CBAF2608FF6D002A5319 /* MyCollectionViewCell.xib in Resources */,
 				01C9CB552608C46B002A5319 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,7 +175,7 @@
 			files = (
 				016C02F02609BE6300C8270D /* JokeModel.swift in Sources */,
 				01C9CB522608C46B002A5319 /* ViewController.swift in Sources */,
-				016C02E82609A3AA00C8270D /* MyCollectionViewCell.swift in Sources */,
+				016C02F5260A144C00C8270D /* CustomCollectionViewCell.swift in Sources */,
 				01C9CBB52609206C002A5319 /* JokesManager.swift in Sources */,
 				01C9CB4E2608C46B002A5319 /* AppDelegate.swift in Sources */,
 				016C02ED2609AB5900C8270D /* JokeData.swift in Sources */,

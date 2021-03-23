@@ -16,11 +16,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: view.frame.width/5, height: 40)
-        collectionView = UICollectionView(frame: CGRect(x: 10, y: 150, width: view.frame.width-20, height: 180), collectionViewLayout: layout)
-        collectionView?.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.identifier)
-        collectionView?.backgroundColor = .gray
+        collectionView = UICollectionView(frame: CGRect(x: 10, y: 150, width: view.frame.width-20, height: 190), collectionViewLayout: layout)
+        collectionView?.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
+        collectionView?.backgroundColor = .lightGray
+        collectionView?.layer.cornerRadius = 8
         collectionView?.delegate = self
         collectionView?.dataSource = self
         view.addSubview(titlelabel)
@@ -41,7 +42,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.identifier, for: indexPath) as! MyCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as! CustomCollectionViewCell
         cell.labeld.text = jokesManager.Category[indexPath.row]
         return cell
     }
@@ -64,24 +65,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }()
     let contentLabel : UILabel = {
         let clabel = UILabel(frame: CGRect(x: 100, y: 400, width: 400, height: 30))
-        clabel.text = "Selected Category : Food"
+        clabel.text = "Selected Category : "
         clabel.textColor = .black
         clabel.font = UIFont(name: "HelveticaNeue", size: 16)
         clabel.translatesAutoresizingMaskIntoConstraints = false
         return clabel
     }()
     let JokeTextView: UITextView = {
-        let JokeView = UITextView(frame: CGRect(x: 10, y: 430, width: 370, height: 250))
-        JokeView.text = "Select a Category to Disaply Jokes"
-        JokeView.textContainerInset = UIEdgeInsets(top: 70, left: 30, bottom:  70, right: 30)
+        let JokeView = UITextView(frame: CGRect(x: 10, y: 430, width: 370, height: 300).standardized)
+        JokeView.text = "Select any Category to Display Jokes"
+        JokeView.textContainerInset = UIEdgeInsets(top: 120, left: 20, bottom:  20, right: 15)
         JokeView.textColor = .white
         JokeView.backgroundColor = .link
-        JokeView.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
+        JokeView.clipsToBounds = true
+        JokeView.layer.cornerRadius = 8.0
+        JokeView.font = UIFont(name: "HelveticaNeue-Bold", size: 16)
         JokeView.translatesAutoresizingMaskIntoConstraints = false
         return JokeView
     }()
     let JokeButton : UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 700, width: 400, height: 30))
+        let button = UIButton(frame: CGRect(x: 0, y: 750, width: 400, height: 30))
         button.setTitle("New Joke", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
